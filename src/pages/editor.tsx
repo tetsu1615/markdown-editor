@@ -48,12 +48,14 @@ const Preview = styled.div`
   width: 50vw;
 `
 
-const StorageKey = 'pages/editor:text'
+interface Props {
+  text: string
+  setText: (text: string) => void
+}
 
-export const Editor: React.FC = () => {
-  const [text, setText] = useStateWithStorage('',StorageKey)
-
-const [showModal, setShowModal] = useState(false)
+export const Editor: React.FC<Props> = (props) => {
+  const {text, setText} = props
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <>
